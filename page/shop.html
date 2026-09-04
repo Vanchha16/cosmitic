@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cosmetic</title>
+        <!-- <link rel="stylesheet" href="../css/style.css"> -->
+        <link rel="stylesheet" href="../css/shop.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link rel="shortcut icon" href="../img/smaillogo.png" type="image/x-icon">
+        <link rel="stylesheet" href="../css/responsive.css?v=2" />
+            <style>
+            .container-shop-detial {
+                font-family: Khmer OS battambang;
+                background: #FEEAF5;
+                border: 1px solid #FEB3D7;
+                margin: auto;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                max-width: 750px;
+                width: 90%;
+                border-radius: 16px;
+                padding: 25px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                transition: all ease-in-out 0.3s;
+                z-index: 100;
+            }
+            .container-shop-detial.show{
+                transform: translate(-50%, -50%) scale(1);
+            }
+            @media (max-width: 768px) {
+                .container-shop-detial {
+                    width: 92% !important;
+                    max-width: 440px !important;
+                    max-height: 85vh !important;
+                    overflow-y: auto !important;
+                    padding: 20px 15px !important;
+                }
+                .content {
+                    flex-direction: column !important;
+                    gap: 15px !important;
+                }
+                .content img {
+                    width: 100% !important;
+                    max-height: 200px !important;
+                    object-fit: contain !important;
+                }
+                .text-section {
+                    margin-left: 0 !important;
+                }
+            }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            &:hover{
+                color: rgb(252, 0, 0);
+                background-color: white;
+                border: 1px red;
+            }
+            &:active{
+                color: red;
+                background-color: rgb(245, 233, 233);
+            }
+        }
+        .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(10px);
+                display: none;
+                z-index: 5;
+            }
+            .overlay.show {
+                display: block;
+            }
+        .content {
+            display: flex;
+            gap: 20px;
+        }
+        .content img {
+            width: 300px;
+            /* border-radius: 10px; */
+        }
+        .text-section {
+            font-size: 16px;
+            flex: 1;
+            text-align: start;
+            margin-left: 20px;
+        }
+            </style>
+        
+        </head>
+    <body>
+        <script>
+                    function showdetial(productId) {
+                        // Hide all product details first
+                        let allDetails = document.querySelectorAll('.container-shop-detial');
+                        allDetails.forEach(detail => {
+                            detail.classList.remove('show');
+                        });
+
+                        // Show the corresponding product detail
+                        let detail = document.getElementById(`container-shop-detial-${productId}`);
+                        detail.classList.add('show');
+
+                        // Show overlay
+                        document.getElementById('overlay').classList.add('show');
+                        document.body.classList.add('blurred');
+                    }
+
+                    function closeDetail() {
+                        // Close the detail view
+                        let allDetails = document.querySelectorAll('.container-shop-detial');
+                        allDetails.forEach(detail => {
+                            detail.classList.remove('show');
+                        });
+
+                        // Hide overlay and remove blur from body
+                        document.getElementById('overlay').classList.remove('show');
+                        document.body.classList.remove('blurred');
+                    }
+
+        </script>
+        <script src="../java/shop.js"></script>
+        <!-- <script src="../java/java.js"></script> -->
+         <!-- <script src="../java/test.js"></script> -->
+        <div class="container">
+            <div class="header">
+                <div class="heading">
+                    <div class="logo"><a href="../index.html"><img src="../img/LOGO.png" alt="" /></a></div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="../index.html">ទំព័រដើម</a></li>
+                            <li><a href="./shop.html" style="color: pink; text-decoration: underline;">ទិញ</a></li>
+                            <li><a href="./blog.html">BLOG</a></li>
+                            <li><a href="./aboutus.html">អំពីយើង</a></li>
+                            <li><a href="./contact.html">ទំនាក់ទំនង</a></li>
+                        </ul>
+                    </div>
+                    <div class="icon">
+                        <div class="cycle" id="cycle">
+                            <p style="text-align: center; margin-top: 5px; color: rgb(252, 252, 252); font-size: 20px;" id="add-number">0</p>
+                        </div>
+                        <a href="./card.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+                </div>
+                <div class="mid-page">
+                    <div class="head">
+                        <img src="../img/smaillogo.png" alt="" />
+                        <p>ផលិតផលថែរក្សាស្បែក​ BESOMA BEAUTY</p>
+                        <img src="../img/smaillogo.png" alt="" />
+                    </div>
+                </div>
+                <div class="overlay" id="overlay" onclick="closeDetail()"></div>
+                <div class="porduct-container">
+                    <div class="product">
+                        <div class="item"  data-product-id="1">
+                            <img src="../img/Product-1.png" alt="" onclick="showdetial(1)" />
+                            <p>Good Barrier Moisturizer</p>
+                            <p class="color">$39.00</p>
+                            <button>
+                                <span onclick="dele('item 1')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ
+                                <span onclick="add('item 1' , 39.00 , '../img/Product-1.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item"  data-product-id="2">
+                            <img src="../img/Product-2.png" alt="" onclick="showdetial(2)" />
+                            <p>Hydrating Serum Cleanser</p>
+                            <p class="color">$35.00</p>
+                            <button>
+                                <span onclick="dele('item 2')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ
+                                <span onclick="add('item 2' , 35.00 , '../img/Product-2.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item"  data-product-id="3">
+                            <img src="../img/Product-3.png" alt="" onclick="showdetial(3)" />
+                            <p>GG Original Serum</p>
+                            <p class="color">$49.00</p>
+                            <button>
+                                <span onclick="dele('item 3')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ
+                                <span onclick="add('item 3' , 49.00 , '../img/Product-3.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-4.png" alt="" onclick="showdetial(4)" />
+                            <p>Cica Glow Mist</p>
+                            <p class="color">
+                                <span style="text-decoration: line-through"
+                                    >$35.00</span
+                                >
+                                $29.75
+                            </p>
+                            <button>
+                                <span onclick="dele('item 4')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 4' , 35.00 , '../img/Product-4.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-5.png" alt="" onclick="showdetial(5)" />
+                            <p></p>
+                            Collagen Cleansing Balm
+                            <p class="color">$35.00</p>
+                            <button>
+                                <span onclick="dele('item 5')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 5' , 35.00 , '../img/Product-5.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-6.png" alt="" onclick="showdetial(6)" />
+                            <p>EGF Glow Mask</p>
+                            <p class="color">$45.00</p>
+                            <button>
+                                <span onclick="dele('item 6')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 6' , 45.00 , '../img/Product-6.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-7.png" onclick="showdetial(7)" alt="" />
+                            <p>Glow Cusion SPF50 PA+++</p>
+                            <p class="color">$33.00</p>
+                            <button>
+                                <span onclick="dele('item 7')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 7' , 33.00, '../img/Product-7.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-8.png" alt="" onclick="showdetial(8)" />
+                            <p>Mineral Beauty Sunscreen</p>
+                            <p class="color">$45.00</p>
+                            <button>
+                                <span onclick="dele('item 8')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 8' , 45.00 , '../img/Product-8.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-9.png" alt="" onclick="showdetial(9)" />
+                            <p>PHA Gentle Pads</p>
+                            <p class="color">$44.00</p>
+                            <button>
+                                <span onclick="dele('item 9')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 9' , 44.00 , '../img/Product-9.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-10.png" alt="" onclick="showdetial(10)" />
+                            <p>Hybridge Beauty Sunscreen</p>
+                            <p class="color">$45.00</p>
+                            <button>
+                                <span onclick="dele('item 10')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 10' , 45.00 , '../img/Product-10.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-11.png" alt="" onclick="showdetial(11)" />
+                            <p>Milky Jelly Cleanser</p>
+                            <p class="color">$34.00</p>
+                            <button>
+                                <span onclick="dele('item 11')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 11' , 34.00 , '../img/Product-11.png')">+</span>
+                            </button>
+                        </div>
+                        <div class="item">
+                            <img src="../img/Product-12.png" alt="" onclick="showdetial(12)" />
+                            <p>Cusion Refill</p>
+                            <p class="color">$25.00</p>
+                            <button>
+                                <span onclick="dele('item 12')">-</span>បន្ថែមទៅកន្ត្រកទំនិញ<span onclick="add('item 12' , 25.00 , '../img/Product-12.png')">+</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-in">
+                    <div class="footter-in-in">
+                        <h2>ទទួលបានការបញ្ចុះតម្លៃ​ 10%</h2>
+                        <p>
+                            ដោយគ្រាន់តែធ្វើការ Subscribe មកកាន់ BESOMA BEAUTY
+                            <br />ដើម្បីទទួលបានព័ត៌មាន Update អំពីផលិតផល
+                            និងប្រូម៉ូសិនថ្មីមុនគេ!
+                        </p>
+                        <div class="input">
+                            <input type="text" placeholder="បញ្ចូលអាស័យដ្ធានរបស់អ្នកនៅទីនេះ... " id="input">
+                            <button onclick="delinput()">ដាក់បញ្ចូន</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-footer">
+                <div class="header-con">
+                    <h1>Comapany</h1>
+                    <a href="./contact.html">Contact</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./growtogrow.html">Glow to Glow</a>
+                </div>
+                <div class="header-con">
+                    <h1>Support</h1>
+                    <a href="./shop&return.html">Shopping & Returns</a>
+                    <a href="./glow&point.html">Glow Points</a>
+                </div>
+                <div class="header-con">
+                    <h1>Social</h1>
+                    <a href="https://www.facebook.com/somabeauti/">Facebook</a>
+                    <a href="https://www.instagram.com/somabeauti/">Instagram</a>
+                    <a href="https://www.tiktok.com/@besomabeauty?lang=km-KH">TikTok</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    <div class="container-shop-detial" id="container-shop-detial-1">
+        <button class="close-btn" id="overlay" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-1.png" alt="Product Image">
+            <div class="text-section" style="font-size: 13px;">
+                <h2>បញ្ហា</h2>
+                <p>ស្បែកជាប់គាំង, ស្ងួត, មានភាពខ្លាញ់ថែម និងងាយប្រតិកម្ម។</p>
+                <h2>អត្ថប្រយោជន៍</h2>
+                <p>ផ្តល់សំណើមជាអតិបរមា និងជួយអោយស្បែកទន់ល្អ។</p>
+                <h2>តើសម្រស់របស់អ្នកប្រឈមនឹងបញ្ហាអ្វីខ្លះ?</h2>
+                <p>ចំណុចអាក្រក់នានាដែលប៉ះពាល់ដល់ស្បែក។</p>
+                <h2>តើអ្វីដែលអាចជួយឲ្យស្បែកប្រកបដោយសុខភាព?</h2>
+                <ul style="margin-left: 19px;">
+                    <li>ផ្តល់សំណើម</li>
+                    <li>ជួយការពារស្បែកពីការប៉ះពាល់</li>
+                    <li>ជួយបណ្តុះស្បែកអោយមានសុខភាពល្អ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+     <div class="container-shop-detial" id="container-shop-detial-2" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-2.png" alt="Product Image">
+            <div class="text-section">
+                <h2>បញ្ហា</h2>
+                <p>ស្បែកស្ងួត ជ្រីវជ្រួញ ស្បែកមិនស្មើគ្នា មានស្នាមអុចខ្មៅ ស្នាមមុន ក្រហម រមាស់ ប្រតិកម្ម</p>
+                <h2>អត្ថប្រយោជន៍</h2>
+                <p>ជួយផ្តល់សំណើម និងបំបាត់ការរលាក ការពារប្រឆាំងនឹងការខូចខាតរ៉ាឌីកាល់សេរី និងកាត់បន្ថយសញ្ញានៃភាពចាស់  ធ្វើឱ្យកោសិកាស្បែកដែលងាប់ឡើងវិញ និងធ្វើអោយស្បែកភ្លឺថ្លា។</p>
+                <h2>តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>ស្បែកស្ងួត ងាយប្រតិកម្ម សសៃក្រហម ស្បែកខូចរបាំងការពារ និងស្បែកធម្មតា។</p>
+                <h2>របៀបប្រើប្រាស់</h2>
+                <p>ម៉ាស្សាថ្នមៗលើស្បែកសើមរយៈពេល 1 នាទី។ </p>
+            </div>
+        </div>
+    </div>
+     <div class="container-shop-detial" id="container-shop-detial-3">
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-3.png" alt="Product Image">
+            <div class="text-section">
+                
+                <p>សូមណែនាំសេរ៉ូម Glow Goddess (GG) របស់យើង! ផលិតក្រោមដៃរបស់គីមីវិទូអស់រយៈពេលជិត 8 ឆ្នាំចាប់តាំងពីខែកញ្ញា ឆ្នាំ 2017 មក ឥឡូវនេះយើងបាននាំមកជូនលោកអ្នកជាលើកដំបូងនៅសហរដ្ឋអាមេរិកនូវសេរ៉ូម GG signature របស់យើង ដែលទទួលបានការស្រលាញ់យ៉ាងខ្លាំងពីសំណាក់អ្នកគាំទ្រជាទីស្រលាញ់របស់យើង។ លទ្ធផលដ៏អស្ចារ្យ និងការត្រលប់មកវិញ។</p>
+                <h2>តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>ល្អសម្រាប់គ្រប់ប្រភេទស្បែកដែលមានបញ្ហា និងគ្មានកង្វល់។</p>
+                <ul style="list-style: none;">
+                    <li>✔ភ្លឺនិងទន់</li>
+                    <li>✔កាត់បន្ថយរូបរាងនៃរន្ធញើសធំ</li>
+                    <li>✔កាត់បន្ថយស្នាមអុចខ្មៅ ស្នាមមុន ស្នាមអុចខ្មៅ</li>
+                    <li>✔ផ្តល់សំណើម និងផ្តល់សំណើម</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+     <div class="container-shop-detial" id="container-shop-detial-4" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-4.png" alt="Product Image">
+            <div class="text-section">
+                <h2>បញ្ហា</h2>
+                <p>ស្បែកស្ងួត ស្រអាប់ ខ្សោះជាតិទឹក ក្រហម ងាយប្រតិកម្ម ស្នាមអុចខ្មៅ និងមានស្នាមជ្រួញ។</p>
+                <h2>អត្ថប្រយោជន៍</h2>
+                <p>Licorice Root Extract គឺជាសារធាតុធ្វើអោយនៃពណ៌ស្បែកពេលយប់ ក៏ដូចជាអ្នកដែលចង់បំបាត់ស្បែកដែលរលាក។  hydroquinone ដែលមិនអាចប្រើបានដោយស្ត្រីមានផ្ទៃពោះនោះទេ។</p>
+                <h2>តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <ul style="list-style: none;">
+                    <li>✔ធម្មតា។</li>
+                    <li>✔ស្ងួត</li>
+                    <li>✔ខ្លាញ់</li>
+                    <li>✔ងាយប្រតិកម្ម</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+     <div class="container-shop-detial" id="container-shop-detial-5" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-5.png" alt="Product Image">
+            <div class="text-section">
+                <h2>បញ្ហា</h2>
+                <p>អ្នកដែលចូលចិត្តផាត់មុខមិនថាក្រាស់ ឬស្រាល ការផាត់មុខបែប​Waterproof ឡេការពារកម្តៅថ្ងៃ</p>
+                <h2>អត្ថប្រយោជន៍</h2>
+                <p>ផ្តល់ភាពតឹងណែន និងភាពយឺតនៃស្បែកផ្តល់សំណើម បំបាត់ភាពក្រហម និងរលាកស្បែក ធ្វើអោយស្បែកភ្លឺថ្លា ព្យាបាលស្បែកដែលខូច  និងមិនធ្វើឲ្យស្ទះរន្ធញើស។</p>
+                <h2>តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>ស្បែកធម្មតា ងាយប្រតិកម្ម ស្បែកងាយកើតមុន ស្បែកចម្រុះ ស្បែកស្ងួត និងស្បែកងាយឡើងប្រេង។</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-shop-detial" id="container-shop-detial-6" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-6.png" alt="Product Image">
+            <div class="text-section" style="font-size: 13px;">
+                <h2>បញ្ហា</h2>
+                <p>ស្បែកខ្មៅស្រអាប់ ស្ងួត ស្បែកមិនស្មើគ្នា ស្បែកកន្ទួលក្រហម ខ្សោះជាតិទឹក ស្មានអុចខ្មៅ និងស្នាមជ្រួញ។</p>
+                <h2>អត្ថប្រយោជន៍</h2>
+                <p>ពង្រឹងរបាំងស្បែក ការពារស្បែកពីអុកស៊ីតកម្ម រក្សាសំណើម និងធ្វើឱ្យស្បែកមើលទៅរស់រវើក ភ្លឺថ្លា និងក្មេងជាងវ័យ។ជួយកាត់បន្ថយការរលាក និងកន្ទួលក្រហម។ ធ្វើអោយស្បែកស្រស់ថ្លា និងផ្តល់សំណើមដល់ស្បែក។
+បង្រួមរន្ធញើស កាត់បន្ថយស្នាមអុចខ្មៅ ស្នាមមុន និងធ្វើអោយប្រសើរឡើងនូវអេឡាស្ទីនរបស់ស្បែក។</p>
+                <h2>- របៀបប្រើប្រាស់</h2>
+                <p>*អូស Essence ពី Mask Room ទៅ Essence Room <br>
+*លាប Essence លើមុខ<br>
+*យកសន្លឹកម៉ាស់ស្រទាប់ទីពីរបិទលើមុខ<br>
+*ប្រើ roller ម៉ាស្សា ដើម្បីជ្រាបចូលជ្រៅទៅក្នុងស្រទាប់ស្បែកនៃស្បែក <br>
+*ទុកចោល 15-20 នាទី ឬរហូតដល់ស្ងួត 85-90% ប៉ុន្តែមិនស្ងួតទាំងស្រុង។ <br>
+*លាបជាមួយសេរ៉ូម ឬក្រែមផ្តល់សំណើម។</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-shop-detial" id="container-shop-detial-7" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-7.png" alt="Product Image">
+            <div class="text-section" style="font-size: 13px;">
+                
+                <p>បិទបាំងស្នាមបានឥតខ្ចោះ ជាប់លើមុខបានយូរ មានសំណើម ស្រស់ថ្លា ប្រឆាំងភាពជ្រីវជ្រួញ និងសំបូរទៅដោយសារធាតុចិញ្ចឹមដែលមាន SPF50+ PA+++។ មកជាមួយ 3 លេខផ្សេងគ្នា: 21 សម្រាប់ស្បែកស្រាល, 23 សម្រាប់ស្បែកភ្លឺទៅមធ្យម, 25 សម្រាប់ស្បែកមធ្យម។</p>
+                <h2>- តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>✔ស្បែកស្ងួត<br>
+✔ស្បែកខ្លាញ់<br>
+✔ស្បែកចម្រុះ<br>
+✔ស្បែកងាយប្រតិកម្ម<br>
+✔និងស្បែកដែលសម្បូរស្នាមជ្រីវជ្រួញ។</p>
+                <h2>- អត្ថប្រយោជន៍</h2>
+                <p>ចំរាញ់ចេញពីគុជខ្យង ជួយបង្កើតកូឡាជែនឡើងវិញ ព្យាបាលមុន បំបាត់ស្នាមជ្រួញ ស្នាមអុចខ្មៅ និងពណ៌ស្រអាប់ និងពន្យាភាពចាស់។ ប្រឆាំងនឹងការរលាក និងប្រឆាំងនឹងបាក់តេរី ដែលអាចជួយកាត់បន្ថយស្នាមអុចខ្មៅ។ លើសពីនេះ propolis អាចជួយឱ្យស្បែកភ្លឺថ្លា និងធ្វើឱ្យស្បែកមានពណ៌សម្បុរស្មើរគ្នា។</p>
+            </div>
+        </div>
+    </div>
+      <div class="container-shop-detial" id="container-shop-detial-8" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-8.png" alt="Product Image">
+            <div class="text-section" style="font-size: 12px;">
+                <h2>បញ្ហា</h2>
+                <p>ស្បែកខូចដោយសារកំដៅថ្ងៃ ស្នាមអុចខ្មៅ កាំរស្មីយូវី ស្នាមអុចខ្មៅ ស្រអាប់ ស្ងួត ស្បែកមិនស្មើគ្នា ក្រហម ខ្សោះជាតិទឹក មានស្នាមអុចខ្មៅ និងស្នាមជ្រួញ។</p>
+                <h2>- តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>✔ស្បែកធម្មតា។<br>
+✔ស្បែកងាយប្រតិកម្ម<br>
+✔ស្បែកងាយនឹងកើតមុន<br>
+✔ស្បែកចម្រុះ<br>
+✔ស្បែកស្ងួត<br>
+✔ស្បែកខ្លាញ់<br>
+✔សម្រាប់អ្នកមានផ្ទៃពោះ ឬបំបៅដោះកូនក៏អាចប្រើបាន។</p>
+                <h2>- អត្ថប្រយោជន៍</h2>
+                <p>ឡេការពារកម្តៅថ្ងៃដែលការពារការខូចខាតពីកាំរស្មី UVA (ភាពចាស់) និងកាំរស្មី UVB (ការដុត) ។ ផ្តល់សំណើម និងសុវត្ថិភាពសម្រាប់ស្បែកដែលងាយប្រតិកម្ម និង rosacea ។ ល្អសម្រាប់ស្ត្រីមានផ្ទៃពោះ និងបំបៅដោះកូន។
+កាត់បន្ថយការឡើងក្រហម និងធ្វើឱ្យស្បែកស្ងប់ដោយទប់ស្កាត់ជាតិទឹក ពង្រឹងរបាំងស្បែក ឱ្យស្បែកមានសុខភាពល្អ និងរឹងមាំជាងមុន។ </p>
+            </div>
+        </div>
+    </div>
+      <div class="container-shop-detial" id="container-shop-detial-9" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-9.png" alt="Product Image">
+            <div class="text-section" style="font-size: 12px;">
+                <h2>បញ្ហា</h2>
+                <p>ស្នាមអុចខ្មៅ ស្រអាប់ រន្ធញើសធំ ស្នាមមុន ភាពស្ងួត ស្បែកមិនស្មើគ្នា ក្រហម ខ្សោះជាតិទឹក ចំណុចខ្មៅ និងមានស្នាមជ្រួញ</p>
+                <h2>- តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>✔ស្បែកធម្មតា។<br>
+✔ស្បែកងាយប្រតិកម្ម<br>
+✔ស្បែកងាយនឹងកើតមុន<br>
+✔ស្បែកចម្រុះ<br>
+✔ស្បែកស្ងួត<br>
+✔ស្បែកខ្លាញ់។</p>
+                <h2>- អត្ថប្រយោជន៍</h2>
+                <p>PHA ដំណើរការដោយការជម្រុះកោសិកាស្បែកដែលងាប់លើផ្ទៃ បង្កើតកោសិកាថ្មី ធ្វើឲ្យស្បែកភ្លឺ ទន់ រលោង។
+ល្អសម្រាប់ស្បែកងាយប្រតិកម្ម កាត់បន្ថយរន្ធញើសធំ កាត់បន្ថយស្នាមអុចខ្មៅ ស្នាមមុន និងធ្វើអោយប្រសើរឡើងនូវអេឡាស្ទីនរបស់ស្បែក។
+លើសពីនេះ វាជាជម្រើសដ៏ល្អសម្រាប់ស្ត្រីមានផ្ទៃពោះដែលកំពុងស្វែងរកវិធីដែលមានសុវត្ថិភាពក្នុងការព្យាបាលជំងឺមហារីកស្បែក មិនដូច hydroquinone ដែលមិនអាចប្រើបានដោយស្ត្រីមានផ្ទៃពោះនោះទេ។</p>
+            </div>
+        </div>
+    </div>
+      <div class="container-shop-detial" id="container-shop-detial-10" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-10.png" alt="Product Image">
+            <div class="text-section" style="font-size: 12px;">
+                
+                <p>BESOMA Beauty Sunscreen ផ្តល់នូវអត្ថប្រយោជន៍ជាច្រើន ក្រៅពីការពារអ្នកពីពន្លឺព្រះអាទិត្យ។ ស្បែករបស់អ្នកត្រូវបានការពារពីកាំរស្មី UV ដែលបង្កគ្រោះថ្នាក់ដូចជា UVA និង UVB ជាមួយនឹង spf 40 ដ៏អស្ចារ្យ ដែលល្អឥតខ្ចោះសម្រាប់មនុស្សគ្រប់គ្នាពីគ្រប់ទិសទី។ កុំ​ភ្លេច​ការ​បំពុល​ដែល​ជា​មូលហេតុ​មួយ​នៃ​ស្បែក​ខ្មៅ​ស្រអាប់ ស្ងួត បែក​ញើស និង​ស្បែក​មិន​ស្អាត។
+Beauty Sunscreen ទប់ស្កាត់ជាតិពុល និងជាតិពុលទាំងនោះមិនឱ្យចូលទៅក្នុងស្បែករបស់អ្នក។ វាជួយការពាររ៉ាឌីកាល់សេរី និងការខូចខាតអុកស៊ីតកម្មផងដែរ។ ពន្លឺពណ៌ខៀវគឺជាកាំរស្មីមួយក្នុងចំណោមកាំរស្មីដែលបង្កគ្រោះថ្នាក់ពីព្រះអាទិត្យ ក៏ដូចជាពីឧបករណ៍អេឡិចត្រូនិកដែលអ្នកមានដូចជា ទូរស័ព្ទ ថេប្លេត iPad iPod ទូរទស្សន៍ជាដើម។ កុំបារម្ភអី Beauty Sunscreen របស់យើងអាចជួយទប់ស្កាត់មិនអោយចូលទៅក្នុងស្បែករបស់អ្នក និងរក្សាពន្លឺទាំងនោះឱ្យនៅឆ្ងាយ។
+</p>
+                <h2>- តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>✔ស្បែកធម្មតា។<br>
+✔ស្បែកងាយប្រតិកម្ម<br>
+✔ស្បែកងាយនឹងកើតមុន<br>
+✔ស្បែកចម្រុះ<br>
+✔ស្បែកស្ងួត<br>
+✔ស្បែកចាស់ជ្រីវជ្រួញ។</p>
+            </div>
+        </div>
+    </div>
+      <div class="container-shop-detial" id="container-shop-detial-11" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-11.png" alt="Product Image">
+            <div class="text-section" style="font-size: 12px;">
+                <h2>បញ្ហា</h2>
+                <p>ស្បែកមានស្នាមអុចខ្មៅ ស្រអាប់ ស្ងួត ប្រេង ស្នាមជាំ ស្ទះរន្ធញើស មុនក្បាលស មុនក្បាលខ្មៅ ស្បែកមិនស្មើគ្នា ស្នាមមុន ក្រហម ស្បែកងាប់។</p>
+                <h2>- តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>✔ស្បែកធម្មតា។<br>
+✔ស្បែកចម្រុះ<br>
+✔ស្បែកស្ងួត<br>
+✔ស្បែកខ្លាញ់។</p>
+                <h2>- អត្ថប្រយោជន៍</h2>
+                <p>BHA សម្លាប់បាក់តេរីចាស់ៗ បញ្ឈប់ការកើតមុន ធ្វើអោយស្បែកស្អាត និងភ្លឺថ្លា។ កាត់បន្ថយទំហំរន្ធញើស ដើម្បីឱ្យស្បែកមុខកាន់តែស។ បង្រួមរន្ធញើស ធ្វើអោយស្បែកស្អាត រលោង និងមានសុខភាពល្អ។ លើសពីការលុបបំបាត់មុន BHA ក៏រំញោច collagen ដែលជាប្រូតេអ៊ីនរចនាសម្ព័ន្ធដ៏សំខាន់ដែលបន្ថយស្បែករបស់យើងនៅពេលយើងចាស់។ កូឡាជែនដែលបានកែលម្អមានន័យថា ស្បែកស ទន់ជ្រាយ ទន់រលោង និងក្មេងជាងវ័យ។ សារធាតុផ្សំនេះមានប្រសិទ្ធភាពខ្ពស់ក្នុងការព្យាបាលស្នាមអុចខ្មៅ ដើម្បីឱ្យស្បែកកាន់តែស កាត់បន្ថយស្នាមអុចខ្មៅ និងស្នាមអុចខ្មៅ។ ល្អឥតខ្ចោះសម្រាប់ការកម្ចាត់កោសិកាស្បែកដែលងាប់។ ភ្លឺនិងផ្តល់សំណើម។</p>
+            </div>
+        </div>
+    </div>
+      <div class="container-shop-detial" id="container-shop-detial-12" >
+        <button class="close-btn" onclick="closeDetail()">&times;</button>
+        <div class="content">
+            <img src="../img/Shop Detail/Shop Detail/datil-12.png" alt="Product Image">
+            <div class="text-section" style="font-size: 12px;">
+                <p>បិទបាំងស្នាមបានឥតខ្ចោះ ជាប់លើមុខបានយូរ មានសំណើម ស្រស់ថ្លា ប្រឆាំងភាពជ្រីវជ្រួញ និងសំបូរទៅដោយសារធាតុចិញ្ចឹមដែលមាន SPF50+ PA+++។ មកជាមួយ 3 លេខផ្សេងគ្នា: 21 សម្រាប់ស្បែកស្រាល, 23 សម្រាប់ស្បែកភ្លឺទៅមធ្យម, 25 សម្រាប់ស្បែកមធ្យម។</p>
+                <h2>- តើល្អសម្រាប់ស្បែកប្រភេទណាដែល?</h2>
+                <p>✔ស្បែកស្ងួត<br>
+✔ស្បែកខ្លាញ់<br>
+✔ស្បែកចម្រុះ<br>
+✔ស្បែកងាយប្រតិកម្ម<br>
+✔និងស្បែកដែលសម្បូរស្នាមជ្រីវជ្រួញ។</p>
+                <h2>- អត្ថប្រយោជន៍</h2>
+                <p>ចំរាញ់ចេញពីគុជខ្យង ជួយបង្កើតកូឡាជែនឡើងវិញ ព្យាបាលមុន បំបាត់ស្នាមជ្រួញ ស្នាមអុចខ្មៅ និងពណ៌ស្រអាប់ និងពន្យាភាពចាស់។ ប្រឆាំងនឹងការរលាក និងប្រឆាំងនឹងបាក់តេរី ដែលអាចជួយកាត់បន្ថយស្នាមអុចខ្មៅ។ លើសពីនេះ propolis អាចជួយឱ្យស្បែកភ្លឺថ្លា និងធ្វើឱ្យស្បែកមានពណ៌សម្បុរស្មើរគ្នា។</p>
+            </div>
+        </div>
+    </div>
+        <script src="../java/mobile-nav.js?v=2"></script>
+    </body>
+</html>

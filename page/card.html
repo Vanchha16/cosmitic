@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="stylesheet" href="../css/card.css?v=2">
+    <link rel="stylesheet" href="../css/responsive.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+
+        .cycle{
+            width: 30px ;
+            height: 30px;
+            background-color: #ff0000;
+            margin-right: -50px;
+            z-index: 2;
+            border-radius: 50px;
+            margin-top: -40px;  
+            display: none;
+        }
+        video{
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="heading">
+           <div class="logo"><a href="../index.html"><img src="../img/LOGO.png" alt="" /></a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../index.html">ទំព័រដើម</a></li>
+                    <li><a href="./shop.html">ទិញ</a></li>
+                    <li><a href="./blog.html">BLOG</a></li>
+                    <li><a href="./aboutus.html">អំពីយើង</a></li>
+                    <li><a href="./contact.html">ទំនាក់ទំនង</a></li>
+                </ul>
+            </div> 
+            <div class="icon">
+                <div class="cycle" id="cycle">
+                    <p style="text-align: center; margin-top: 5px; color: rgb(252, 252, 252); font-size: 20px; " id="add-number">0</p>
+                </div>
+                <a href="./card.html" style="color: pink;"><i class="fa-solid fa-cart-shopping"></i></a>
+                <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-up">
+        <i class="fa-regular fa-circle-xmark" style="font-size: 25px; position: absolute; left: 95%; bottom: 95%; z-index: 1;" onclick="closeform()" id="close"></i>
+        <video width="320" height="240" id="content-popup">
+            <source src="../video/Untitled video - Made with Clipchamp.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="pop-up-wrong">
+        <i class="fa-regular fa-circle-xmark" style="font-size: 25px; position: absolute; left: 95%; bottom: 95%; z-index: 1;" onclick="closeformwrong()" id="closewrong"></i>
+        <video width="320" height="240" id="content-popup-wrong">
+            <source src="../video/Untitled video - Made with Clipchamp (2).mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="container">
+        <div class="con">
+            <p>កន្ត្រកទំនិញរបស់អ្នក</p><br>
+            <hr><br>
+            <div class="head-1">
+                <p>ទំនិញ</p>
+                <p>តម្លៃ</p>
+                <p>ចំនួន</p>
+                <p>សរុប</p>
+            </div><br>
+            <hr><br>
+
+            <!-- Cart Items Display -->
+            <div id="cart-items"></div>
+
+        </div>
+
+        <div class="con">
+            <div class="background">
+                <h1>ទំនិញរបស់អ្នក</h1><br>
+                <hr><br>
+                <div class="all-item">
+                    <p>ទំនិញសរុប <span id="subtotal" style="margin-left: 228px;">$0.00</span></p><br>
+                    <p>ការទូទាត់សរុប <span id="total">$0.00</span></p><br>
+                </div>
+                <hr><br>
+                <h1>ជ្រើសរើសការទូទាត់</h1>
+                <div class="form-pay">
+                    <div class="pay">
+                        <div class="pay-by"><img src="../img/ac.png" alt=""></div>
+                        <div class="pay-by"><img src="../img/ABA.png" alt=""></div>
+                        <div class="pay-by"><img src="../img/pp.png" alt=""></div>
+                    </div>
+                    <div class="pay">
+                        <input type="radio" name="payment" id="option1">
+                        <input type="radio" name="payment" id="option2">
+                        <input type="radio" name="payment" id="option3">
+                    </div>
+                </div>
+                <div class="button">
+                    <button><a href="../index.html">ត្រឡប់ក្រោយ</a></button>
+                    <button onclick="checkout()">ទូទាត់</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartContainer = document.getElementById("cart-items");
+            let subtotal = 0;
+            cartContainer.innerHTML = "";
+
+            let cartCountElement = document.getElementById("cycle");
+                let cartNumberElement = document.getElementById("add-number");
+
+                // Calculate total quantity
+                let totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+                if (totalQuantity > 0) {
+                    cartNumberElement.textContent = totalQuantity;
+                    cartCountElement.style.display = "block"; // Show the cart count
+                } else {
+                    cartCountElement.style.display = "none"; // Hide if cart is empty
+                }
+
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                let itemRow = document.createElement("div");
+                itemRow.classList.add("head-1");
+                itemRow.innerHTML = `<div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin: 0; padding: 10px 0;">
+                    <p><img src="${item.img}" style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;"></p>
+                    <p style="font-size: 1rem; font-weight: bold;">$${item.price.toFixed(2)}</p>
+                    <p>
+                        <button style="font-size: 1.2rem; padding: 2px 10px; display: flex; align-items: center; gap: 8px;">
+                            <span onclick="updateQuantity(${index}, -1)" style="cursor: pointer; padding: 2px 6px;">-</span>
+                            <span id="quantity-${index}">${item.quantity}</span>
+                            <span onclick="updateQuantity(${index}, 1)" style="cursor: pointer; padding: 2px 6px;">+</span>
+                        </button>
+                    </p>
+                    <p style="font-size: 1rem; font-weight: bold; color: #f16bac;">$${itemTotal.toFixed(2)}</p>
+                    </div>
+                    <hr style="width: 100%;">
+                   
+                `;
+                cartContainer.appendChild(itemRow);
+            });
+
+            document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById("total").textContent = `$${subtotal.toFixed(2)}`;
+        }
+
+        function updateQuantity(index, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            if (cart[index].quantity + change > 0) {
+                cart[index].quantity += change;
+            } else {
+                cart.splice(index, 1);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function closeformwrong(){
+           const hide = document.getElementById("content-popup-wrong");
+            hide.classList.toggle('hide')
+            document.getElementById("closewrong").style.transform = "scale(0)";
+        }
+
+         function closeform(){
+            const overlay = document.getElementById('content-popup');
+            overlay.classList.toggle('show');
+            const close = document.getElementById('close');
+            close.classList.toggle('showx');
+        }
+
+
+        function checkout() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                document.getElementById("closewrong").style.transform = "scale(1)";
+                let video = document.getElementById("content-popup-wrong");
+                video.play();
+                const hide = document.getElementById("content-popup-wrong");
+                hide.classList.toggle('hide')
+                return;
+            }
+            let video = document.getElementById("content-popup");
+                   if (video.paused) {
+                       video.play();
+                   } else {
+                       video.pause();
+                   }
+               const overlay = document.getElementById('content-popup');
+               overlay.classList.toggle('show');
+               const close = document.getElementById('close');
+               close.classList.toggle('showx');
+            localStorage.removeItem('cart');
+            loadCart();
+        }
+        document.addEventListener("DOMContentLoaded", loadCart);
+    </script>
+    <script src="../java/mobile-nav.js?v=2"></script>
+</body>
+</html>

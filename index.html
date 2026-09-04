@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css?v=2" />
+        <link
+            rel="stylesheet"
+            href="./fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link rel="shortcut icon" href="./img/smaillogo.png" type="image/x-icon">
+        <link rel="stylesheet" href="./css/responsive.css?v=2" />
+        <title>Cosmetic</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="heading">   
+                    <div class="logo"><a href="index.html"><img src="./img/LOGO.png" alt="" /></a></div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="./index.html" style="color: rgb(248, 117, 193); text-decoration: underline;">ទំព័រដើម</a></li>
+                            <li><a href="./page/shop.html" id="#scroll">ទិញ</a></li>
+                            <li><a href="./page/blog.html">BLOG</a></li>
+                            <li><a href="./page/aboutus.html">អំពីយើង</a></li>
+                            <li><a href="./page/contact.html">ទំនាក់ទំនង</a></li>
+                        </ul>
+                    </div>
+                    <div class="icon">
+                        <div class="cycle" id="cycle">
+                            <p style="text-align: center; margin-top: 5px; color: rgb(252, 252, 252); font-size: 20px;" id="add-number">0</p>
+                        </div>
+                        <a href="./page/card.html" id="showitem"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+                </div>
+                <div class="home-page" >
+                    <img src="./img/home-text.png" alt="" />
+                    <button><a href="./page/shop.html" style="text-decoration: none;">ទិញឥឡូវនេះ</a></button>
+                </div>
+                 <div class="photo-container" id="photoContainer">
+
+                 </div>
+            </div>
+            <div class="mid-container">
+                <div class="team1">
+                    <div class="img-1"><img src="./img/5.jpg" alt="" /></div>
+                    <div class="img-1"><img src="./img/3.jpg" alt="" /></div>
+                    <div class="img-1"><img src="./img/6.jpg" alt="" /></div>
+                </div>
+                <div class="team2">
+                    <h4
+                        style="
+                            font-family: khmer os battambang;
+                            margin-top: 50px;
+                            font-size: 1.6rem;
+                            margin-left: 20px;
+                        "
+                    >
+                        ការបញ្ចុះតម្លៃប្រចាំថ្ងៃ
+                    </h4>
+                    <div class="full">
+                        <div class="item">
+                            <img src="./img/12.jpg" alt="" />
+                        </div>
+                        <div class="item">
+                            <div class="item-in">
+                                <h2 style="font-family: khmer os battambang">
+                                    ប្រូម៉ូសិន
+                                </h2>
+                                <div class="icon">
+                                    <i class="fa-solid fa-star"></i
+                                    ><i class="fa-solid fa-star"></i
+                                    ><i class="fa-solid fa-star"></i
+                                    ><i class="fa-solid fa-star"></i
+                                    ><i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="number">
+                                    <p class="text">$35.00</p>
+                                    <p>$29.75</p>
+                                </div>
+                                <p>
+                                    Spray បាញ់មុខ Cica Glow Mist
+                                    ល្អសម្រាប់ប្រភេទស្បែកមុខស្ងួត ស្បែកធម្មតា
+                                    ស្បែកងាយប្រតិកម្ម ស្បែកដែលងាយឡើងប្រេង
+                                    <br />និងស្បែកមុខចម្រុះ។ <br />
+                                    ដោះស្រាយបញ្ហាស្បែកមុខដែលខូចរបាំងការពារ ស្ងួត
+                                    ប្រតិកម្ម <br />ខ្វះជាតិទឹក
+                                    ធ្វើឲ្យស្បែកមុខភ្លឺថ្លាក្មេងជាងវ័យ។
+                                </p>
+                                <div class="countdown">
+                                    <div>
+                                        <div class="circle" id="hours">00</div>
+                                        <div class="label" style="font-family: khmer OS battambang;">ម៉ោង</div>
+                                    </div>
+                                    <div style="margin-top: 25px;">:</div>
+                                    <div>
+                                        <div class="circle" id="minutes">
+                                            00
+                                        </div>
+                                        <div class="label" style="font-family: khmer OS battambang;">នាទី</div>
+                                    </div>
+                                    <div style="margin-top: 25px;">:</div>
+                                    <div>
+                                        <div class="circle" id="seconds">
+                                            00
+                                        </div>
+                                        <div class="label" style="font-family: khmer OS battambang;">វិនាទី</div>
+                                    </div>
+                                </div>
+                                <div class="add">
+                                    <i
+                                        class="fa-solid fa-plus"
+                                        style="font-size: 30px"
+                                        onclick="add('Discount Item' , 29.75 , '../img/12.jpg')"
+                                    ></i>
+                                    <p
+                                        style="
+                                            font-size: 15px;
+                                            font-family: Khmer os battambang;
+                                        "
+                                    >
+                                        ដាក់ចូលកន្ត្រកទំនិញ
+                                    </p>
+                                    <i
+                                        class="fa-regular fa-heart"
+                                        style="
+                                            margin-left: 30px;
+                                            font-size: 30px;
+                    
+                                        "
+                                        onclick="changeIcon(this)"
+                                    ></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team3">
+                    <div class="text-in">
+                        <p style="cursor: default;">ផលិតផលថ្មី</p>
+                        
+                        <div class="arrow">
+                            <i class="fa-solid fa-arrow-left" onclick="scrollL()"></i>
+                            <i class="fa-solid fa-arrow-right" onclick="scrollRight()"></i>
+                        </div>
+                    </div>
+                    <div class="item-display">
+                        <div class="scroll-img" id="scroll-container">
+                            <div class="item-4">
+                                <img src="./img/item-2.png" alt="" />
+                                <p>GG Original Serum</p>
+                                </div>
+                                <div class="item-4">
+                                    <img src="./img/item-3.png" alt="" />
+                                    <p>Collagen Cleansing Balm</p>
+                                </div>
+                                <div class="item-4">
+                                    <img src="./img/item-4.png" alt="" />
+                                    <p>EGF Glow Mask</p>
+                                </div>
+                                <div class="item-4">
+                                    <img src="./img/item-5.png" alt="" />
+                                    <p>PHA Gentle Pad</p>
+                                </div>
+                                <div class="item-4">
+                                <img src="./img/item-6.png" alt="" />
+                                <p>GG Original Serum</p>
+                                </div>
+                                <div class="item-4">
+                                    <img src="./img/item-7.png" alt="" />
+                                    <p>Collagen Cleansing Balm</p>
+                                </div>
+                                <div class="item-4">
+                                    <img src="./img/item-8.png" alt="" />
+                                    <p>EGF Glow Mask</p>
+                                </div>
+                                <div class="item-4">
+                                    <img src="./img/item-10.png" alt="" />
+                                    <p>PHA Gentle Pad</p>
+                                </div>
+                                <div class="item-4">
+                                    <img src="./img/item-11.png" alt="" />
+                                    <p>PHA Gentle Pad</p>
+                                </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-in">
+                    <div class="footter-in-in">
+                        <h2>ទទួលបានការបញ្ចុះតម្លៃ​ 10%</h2>
+                        <p>
+                            ដោយគ្រាន់តែធ្វើការ Subscribe មកកាន់ BESOMA BEAUTY
+                            <br />ដើម្បីទទួលបានព័ត៌មាន Update អំពីផលិតផល
+                            និងប្រូម៉ូសិនថ្មីមុនគេ!
+                        </p>
+                        <div class="input">
+                            <input
+                                type="text"
+                                name=""
+                                id="input"
+                                placeholder="បញ្ចូលអាស័យដ្ធានរបស់អ្នកនៅទីនេះ... "
+                                ​
+                            />
+                            <button onclick="delinput()">ដាក់បញ្ចូន</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-footer">
+                <div class="header-con">
+                    <h1>Comapany</h1>
+                    <a href="./page/contact.html">Contact</a>
+                    <a href="./page/blog.html">Blog</a>
+                    <a href="./page/privacy.html">Privacy Policy</a>
+                    <a href="./page/growtogrow.html">Glow to Glow</a>
+                </div>
+                <div class="header-con">
+                    <h1>Support</h1>
+                    <a href="./page/shop&return.html">Shopping & Returns</a>
+                    <a href="./page/glow&point.html">Glow Points</a>
+                </div>
+                <div class="header-con">
+                    <h1>Social</h1>
+                    <a href="https://www.facebook.com/somabeauti/">Facebook</a>
+                    <a href="https://www.instagram.com/somabeauti/">Instagram</a>
+                    <a href="https://www.tiktok.com/@besomabeauty?lang=km-KH">TikTok</a>
+                </div>
+            </div>
+        </div>
+        <!-- <script src="./java/card.js"></script> -->
+        <script src="./java/java.js"></script>
+        <script src="./java/mobile-nav.js"></script>
+    </body>
+</html>

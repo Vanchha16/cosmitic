@@ -1,0 +1,592 @@
+/* ==========================================================
+   Responsive & Mobile Design System for Cosmetic Website
+   ========================================================== */
+
+/* Universal mobile-friendly root constraints */
+html, body, .container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+    min-height: 100vh;
+    height: auto !important;
+}
+
+/* Ensure images and videos never cause unwanted overflow */
+img, video {
+    max-width: 100%;
+}
+
+/* Desktop default for hamburger button */
+.hamburger-btn {
+    display: none;
+}
+
+/* Header & Cart Badge positioning enhancements */
+.header .heading, .heading {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000 !important;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.heading .icon, .header .icon, .header .icon-home-page, .icon-home-page {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Red Cart Badge styling */
+.cycle {
+    position: absolute !important;
+    top: 18px !important;
+    right: -8px !important;
+    width: 22px !important;
+    height: 22px !important;
+    background: #ff3366 !important;
+    border-radius: 50% !important;
+    margin: 0 !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+    box-shadow: 0 2px 6px rgba(255, 51, 102, 0.4);
+}
+
+.cycle p, #add-number {
+    color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+/* Animation for mobile menu */
+@keyframes navSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================
+   Tablets & Mobile Breakpoints (<= 992px)
+   ========================================================== */
+@media (max-width: 992px) {
+    .heading .menu {
+        margin-left: 30px !important;
+        width: auto !important;
+        flex: 1;
+    }
+    
+    .menu > ul > li > a {
+        font-size: 1.05rem !important;
+    }
+}
+
+/* ==========================================================
+   Mobile Devices Breakpoints (<= 768px)
+   ========================================================== */
+@media (max-width: 768px) {
+    /* Header & Mobile Navbar */
+    .heading, .header .heading {
+        height: 70px !important;
+        padding: 0 16px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .header .heading .logo, .heading .logo {
+        width: auto !important;
+        height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+    }
+
+    .heading > .logo > a > img, .heading > .logo > img {
+        width: auto !important;
+        height: 42px !important;
+        max-width: 130px !important;
+        object-fit: contain !important;
+    }
+
+    /* Icon group on the right */
+    .heading .icon, .header .icon, .header .icon-home-page, .icon-home-page {
+        width: auto !important;
+        height: 70px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        margin: 0 !important;
+        gap: 10px !important;
+    }
+
+    .icon > a, .icon-home-page > a {
+        font-size: 1.6rem !important;
+        display: flex;
+        align-items: center;
+        padding: 6px;
+    }
+
+    .cycle {
+        top: 14px !important;
+        right: 48px !important;
+    }
+
+    /* Hamburger Button */
+    .hamburger-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: none;
+        background: #fff;
+        border: 1px solid #ffd6ea;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.35rem;
+        color: #333;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        transition: background 0.2s, color 0.2s, transform 0.15s;
+        padding: 0 !important;
+    }
+
+    .hamburger-btn:active {
+        transform: scale(0.92);
+        background: #feeaf5;
+        color: #f16bac;
+    }
+
+    /* Mobile Menu Drawer */
+    .heading .menu {
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-height: calc(100vh - 70px) !important;
+        overflow-y: auto !important;
+        margin-left: 0 !important;
+        padding: 16px 0 !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(14px) !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+        border-bottom: 3px solid #ff9dcc !important;
+        display: none !important;
+        z-index: 999 !important;
+    }
+
+    .heading .menu.active {
+        display: block !important;
+        animation: navSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    }
+
+    .menu > ul {
+        flex-direction: column !important;
+        height: auto !important;
+        width: 100% !important;
+        gap: 8px !important;
+        padding: 10px 20px !important;
+        align-items: stretch !important;
+    }
+
+    .menu > ul > li {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+    }
+
+    .menu > ul > li > a {
+        display: block !important;
+        padding: 12px 18px !important;
+        font-size: 1.15rem !important;
+        text-align: center !important;
+        border-radius: 8px !important;
+        background: #fff;
+        border: 1px solid #fae6f2;
+        transition: all 0.2s ease !important;
+    }
+
+    .menu > ul > li > a:hover,
+    .menu > ul > li > a:active {
+        background: #feeaf5 !important;
+        color: #f16bac !important;
+        text-decoration: none !important;
+    }
+
+    /* Landing Page Hero & Banners (Only on index.html with photo slider) */
+    .header:has(.photo-container),
+    .header:has(#photoContainer) {
+        height: auto !important;
+        min-height: 360px !important;
+        margin-bottom: 25px !important;
+        position: relative !important;
+    }
+    .photo-container {
+        transform: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 360px !important;
+        margin: 0 !important;
+    }
+    .photo-slide {
+        width: 100% !important;
+        height: 360px !important;
+    }
+    .photo-slide img {
+        width: 100vw !important;
+        height: 360px !important;
+        object-fit: cover !important;
+    }
+    .header:has(.photo-container) .home-page,
+    .header:has(#photoContainer) .home-page {
+        height: 360px !important;
+        padding: 70px 16px 20px 16px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 18px !important;
+    }
+
+    /* Subpages headers (shop, about, contact, blog, etc.) - no blank space */
+    .header {
+        height: auto !important;
+        min-height: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    .header:not(:has(.photo-container)):not(:has(#photoContainer)) .home-page,
+    .home-page:empty,
+    .header .home-page:not(:has(button)) {
+        display: none !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .home-page > img {
+        width: 85% !important;
+        max-width: 280px !important;
+        height: auto !important;
+    }
+    .home-page > button {
+        margin-left: 0 !important;
+    }
+    .home-page > button > a {
+        font-size: 1.05rem !important;
+        padding: 10px 32px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .mid-container {
+        width: 92% !important;
+        margin: auto !important;
+    }
+    .team1 {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+    .team1 .img-1,
+    .team1 .img-1:nth-child(2) {
+        width: 100% !important;
+        height: 180px !important;
+        margin: 0 !important;
+        border-radius: 14px !important;
+        overflow: hidden !important;
+    }
+    .team1 .img-1 img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 14px;
+    }
+    .team2 {
+        height: auto !important;
+        margin-top: 30px !important;
+        width: 100% !important;
+    }
+    .team2 > h4 {
+        margin-left: 0 !important;
+        margin-top: 20px !important;
+        font-size: 1.4rem !important;
+        text-align: center !important;
+    }
+    .full {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 16px !important;
+        width: 100% !important;
+    }
+    .team2 .full .item {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        border-radius: 16px !important;
+        overflow: hidden;
+    }
+    .team2 .full .item:first-child {
+        height: 260px !important;
+    }
+    .team2 .full .item:first-child img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    .item .item-in {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 24px 14px !important;
+    }
+    .item-in > h2 {
+        font-size: 1.5rem !important;
+    }
+    .item-in .number > p {
+        font-size: 1.6rem !important;
+    }
+    .item-in > p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        padding: 0 5px !important;
+    }
+    .countdown {
+        display: flex !important;
+        margin-left: 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-top: 20px !important;
+    }
+    .countdown .circle {
+        width: 55px !important;
+        height: 55px !important;
+        font-size: 18px !important;
+        border-radius: 50% !important;
+    }
+    .add {
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 25px auto 10px auto !important;
+        justify-content: center !important;
+        border-radius: 30px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+        padding: 12px 20px !important;
+    }
+    .add > p {
+        margin-left: 15px !important;
+        font-size: 13px !important;
+    }
+    .add > i:last-child {
+        margin-left: 15px !important;
+    }
+
+    /* Product Carousel (team3) */
+    .team3 {
+        width: 100% !important;
+        height: auto !important;
+        margin-top: 35px !important;
+        margin-bottom: 35px !important;
+    }
+    .text-in {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 10px !important;
+        margin-bottom: 10px !important;
+        width: 100% !important;
+    }
+    .text-in > p {
+        font-size: 1.4rem !important;
+        margin-bottom: 0 !important;
+    }
+    .text-in > .arrow {
+        margin-left: 0 !important;
+        font-size: 1.3rem !important;
+        display: flex !important;
+        gap: 8px !important;
+    }
+    .item-display {
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+    .scroll-img {
+        width: 100% !important;
+        display: flex !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 10px 5px !important;
+        gap: 14px !important;
+        scrollbar-width: thin !important;
+    }
+    .team3 .item-4 {
+        width: 190px !important;
+        height: 290px !important;
+        flex-shrink: 0 !important;
+        background: #fff !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    }
+    .item-4 > img {
+        height: 80% !important;
+        object-fit: cover !important;
+    }
+    .item-4 > p {
+        font-size: 13px !important;
+        margin-top: 6px !important;
+        white-space: normal !important;
+        padding: 0 4px !important;
+    }
+
+    /* Newsletter & Subscription */
+    .footer {
+        height: auto !important;
+        padding: 45px 16px !important;
+    }
+    .footer-in {
+        height: auto !important;
+    }
+    .footter-in-in {
+        margin-top: 0 !important;
+    }
+    .footter-in-in > h2 {
+        font-size: 1.4rem !important;
+        line-height: 1.4 !important;
+    }
+    .footter-in-in > p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        margin-top: 10px !important;
+        padding: 0 10px !important;
+    }
+    .footter-in-in > .input, .footer-in .input {
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 25px auto 0 auto !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 0 !important;
+        border: none !important;
+        background: transparent !important;
+    }
+    .footter-in-in > .input > input, .footer-in .input input {
+        width: 100% !important;
+        height: 48px !important;
+        background: #ffffff !important;
+        border: 1px solid #ddd !important;
+        border-radius: 8px !important;
+        padding: 0 16px !important;
+        text-align: center !important;
+        font-size: 15px !important;
+        color: #333 !important;
+    }
+    .footter-in-in > .input > button, .footer-in .input button {
+        width: 100% !important;
+        height: 48px !important;
+        margin-left: 0 !important;
+        border-radius: 8px !important;
+        font-size: 1.1rem !important;
+    }
+
+    /* Top Banner / Subpage Header */
+    .mid-page {
+        margin-top: 90px !important;
+        padding: 0 15px !important;
+    }
+
+    .head {
+        padding: 12px 20px !important;
+        border-radius: 12px !important;
+    }
+
+    .head > img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .head > p {
+        font-size: 1.5rem !important;
+    }
+
+    /* Footer Sections */
+    .contact-footer {
+        height: auto !important;
+        padding: 40px 20px !important;
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        background-color: #ffffff;
+    }
+
+    .header-con {
+        padding-top: 0 !important;
+        gap: 12px !important;
+        align-items: center !important;
+    }
+
+    .header-con h1 {
+        font-size: 1.4rem !important;
+        color: #f16bac;
+        margin-bottom: 5px;
+    }
+
+    .header-con > a {
+        font-size: 1.1rem !important;
+        padding: 4px 10px;
+    }
+
+    /* Policy & Detail Pages Responsive Adjustments */
+    .mid-text {
+        height: auto !important;
+        min-height: 80vh !important;
+        padding: 100px 20px 40px 20px !important;
+        font-size: 1.05rem !important;
+        line-height: 1.8 !important;
+    }
+
+    .mid-text .img {
+        margin: 20px auto !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+/* ==========================================================
+   Small Mobile Devices (<= 480px)
+   ========================================================== */
+@media (max-width: 480px) {
+    .heading > .logo > a > img, .heading > .logo > img {
+        max-width: 110px !important;
+        height: 36px !important;
+    }
+
+    .icon > a, .icon-home-page > a {
+        font-size: 1.4rem !important;
+    }
+
+    .hamburger-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+    }
+
+    .cycle {
+        top: 15px !important;
+        right: 44px !important;
+    }
+}

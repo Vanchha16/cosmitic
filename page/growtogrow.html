@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/responsive.css?v=2">
+    <link rel="shortcut icon" href="../img/smaillogo.png" type="image/x-icon">
+    <title>Grow to Glow</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fde8ef;
+}
+
+.heading {
+    display: flex;
+    height: 100px;
+    margin-top: -100px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 0 5%;
+    /* opacity: 0.8; */
+    /* position: relative; */
+    position: fixed;
+    z-index: 1;
+}
+.heading .logo {
+    width: 10%;
+    height: 100px;
+    /* background-color: aqua; */
+}
+.heading > .logo > img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+}
+.heading .menu {
+    width: 40%;
+    /* background-color: aqua; */
+    text-align: center;
+    margin-left: 400px;
+    padding-top: 16px;
+}
+.menu > ul {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    font-family: khmer os battambang;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+.menu > ul > li {
+    width: 20%;
+    display: flex;
+    /* align-items: center; */
+    height: 50px;
+}
+.menu > ul > li > a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    &:hover {
+        color: pink;
+        text-decoration: underline;
+    }
+}
+.icon {
+    width: 20%;
+    height: 100px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.icon > a{
+    color: black;
+    font-size: 2.5rem;
+    &:active{
+        color: #f16bac;
+    }
+}
+.icon > i {
+    font-size: 2.5rem;
+    cursor: pointer;
+    &:active{
+        color: #f16bac;
+    }
+}
+
+.hero {
+    background: url('../img/grow-3.jpg') no-repeat center center/cover;
+    height: 600px;
+    /* position: relative; */
+    text-align: center;
+    color: white;
+    /* margin-top: 20px; */
+}
+
+.hero .overlay {
+    margin-top: 100px;
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    display: flex;
+    object-fit: cover;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.mission, .donation-impact {
+    background: #f8beca;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content img {
+    width: 40%;
+    border-radius: 10px;
+}
+
+.text {
+    width: 55%;
+}
+
+h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2em;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    font-family: Khmer OS battambang;
+    color: white;
+    font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 380px !important;
+    }
+    .hero .overlay {
+        margin-top: 70px !important;
+        padding: 20px 15px !important;
+    }
+    .hero .overlay img {
+        max-width: 90% !important;
+        height: auto !important;
+    }
+    .mission, .donation-impact {
+        padding: 20px 15px !important;
+        margin: 15px 10px !important;
+        border-radius: 12px;
+    }
+    .content {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+    .donation-impact .content {
+        flex-direction: column-reverse !important;
+    }
+    .content img {
+        width: 100% !important;
+        max-height: 240px !important;
+        object-fit: cover !important;
+    }
+    .text {
+        width: 100% !important;
+    }
+    .text h2 {
+        font-size: 1.6rem !important;
+    }
+    .text p {
+        font-size: 1rem !important;
+        line-height: 1.7;
+    }
+}
+
+.contact-footer {
+    width: 100%;
+    height: 300px;
+    /* background-color: aliceblue; */
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    /* gap: 20px; */
+    text-align: center;
+}
+.header-con {
+    /* background-color: #a67b5b; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 40px;
+}
+.header-con > a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.4rem;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="heading">
+                    <div class="logo"><img src="../img/LOGO.png" alt="" /></div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="../index.html">ទំព័រដើម</a></li>
+                            <li><a href="./shop.html" id="#scroll">ទិញ</a></li>
+                            <li><a href="./blog.html">BLOG</a></li>
+                            <li><a href="./aboutus.html">អំពីយើង</a></li>
+                            <li><a href="./contact.html">ទំនាក់ទំនង</a></li>
+                        </ul>
+                    </div>
+                    <div class="icon">
+                        <div class="cycle" id="cycle">
+                            <p style="text-align: center; margin-top: 5px; color: rgb(252, 252, 252); font-size: 20px;" id="add-number">0</p>
+                        </div>
+                        <a href="./card.html" id="showitem"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+    </div>
+
+    <header class="hero">
+        <div class="overlay">
+            <img src="../img/Grow to Glow.png" alt="">
+            <img src="../img/នេះជាឱកាសរបស់យើងក្នុងការធ្វើអ្វីដែលលើសពីការថែរក្សាស្បែក។_BESOMA.png" alt="">
+        </div>
+    </header>
+
+    <section class="mission">
+        <div class="content">
+            <img src="../img/grow-1.png" alt="Grow to Glow's Mission">
+            <div class="text" style="font-family: Vladimir Script; text-align: center; font-size: 1.5rem;">
+                <h2 style="font-family: Vladimir Script; font-size: 3rem;">Grow to Glow's Mission</h2>
+                <p>បន្ទាប់ពីការពិចារណាយ៉ាងយកចិត្តទុកដាក់ យើងបានសម្រេចចិត្តធ្វើការប្តេជ្ញាចិត្តបន្តចំពោះមន្ទីរពេទ្យគន្ធបុប្ផាកម្ពុជា។ ការទិញរបស់អ្នកជួយផ្តល់មូលនិធិដល់ប្រតិបត្តិការចាំបាច់សម្រាប់អង្គការដែលបានជួយសង្គ្រោះកុមារកម្ពុជារាប់មិនអស់ពេញមួយឆ្នាំ។ យើងពិតជារំភើបណាស់ក្នុងការប្រកាសពី Grow to Glow ហើយមិនអាចរង់ចាំអ្វីដែលនឹងកើតឡើងនាពេលអនាគតនោះទេ។</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="donation-impact">
+        <div class="content">
+            <div class="text" style="font-family: Vladimir Script;">
+                <h2 style="font-family: Vladimir Script; font-size: 2.5rem;">Your Purchases Help Fund Critical Life-Saving Operations</h2>
+                <p style="font-size: 1.5rem;">កុមារកម្ពុជាមួយចំនួនធំពឹងផ្អែកលើសេវាព្យាបាលដោយឥតគិតថ្លៃរបស់មន្ទីរពេទ្យគន្ធបុប្ផា ដែលត្រូវបានផ្តល់ជូនដោយគ្មានការរើសអើងក្នុងរយៈពេល 26 ឆ្នាំកន្លងមកនេះ។ ក្នុងកំឡុងឆ្នាំនៃមន្ទីរពេទ្យ
+អត្ថិភាព ពួកគេបានព្យាបាលអ្នកជំងឺក្រៅចំនួន 18 លាននាក់ និងកុមារឈឺធ្ងន់ចំនួន 1.95 លាននាក់ជាអ្នកជំងឺក្នុងមន្ទីរពេទ្យ។</p>
+            </div>
+            <img src="../img/gow-2.png" alt="Helping People">
+        </div>
+    </section>
+
+
+ <div class="contact-footer">
+                <div class="header-con">
+                    <h1>Comapany</h1>
+                    <a href="./contact.html">Contact</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="#">Glow to Glow</a>
+                </div>
+                <div class="header-con">
+                    <h1>Support</h1>
+                    <a href="./shop&return.html">Shopping & Returns</a>
+                    <a href="#">Glow Points</a>
+                </div>
+                <div class="header-con">
+                    <h1>Social</h1>
+                    <a href="https://www.facebook.com/somabeauti/">Facebook</a>
+                    <a href="https://www.instagram.com/somabeauti/">Instagram</a>
+                    <a href="https://www.tiktok.com/@besomabeauty?lang=km-KH">TikTok</a>
+                </div>
+            </div>
+        </div>
+    <script src="../java/mobile-nav.js?v=2"></script>
+</body>
+</html>

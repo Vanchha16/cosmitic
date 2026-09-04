@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/responsive.css?v=2">
+    <link rel="shortcut icon" href="../img/smaillogo.png" type="image/x-icon">
+    <title>Shopping & Returns</title>
+
+    
+</head>
+<style>
+     html{
+            scroll-behavior: smooth;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fde8ef;
+}
+
+.heading {
+    display: flex;
+    height: 100px;
+    /* margin-top: -100px;/ */
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 0 5%;
+    /* opacity: 0.8; */
+    /* position: relative; */
+    position: fixed;
+    z-index: 1;
+}
+.heading .logo {
+    width: 10%;
+    height: 100px;
+    /* background-color: aqua; */
+}
+.heading > .logo > img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+}
+.heading .menu {
+    width: 40%;
+    /* background-color: aqua; */
+    text-align: center;
+    margin-left: 400px;
+    padding-top: 16px;
+}
+.menu > ul {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    font-family: khmer os battambang;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+.menu > ul > li {
+    width: 20%;
+    display: flex;
+    /* align-items: center; */
+    height: 50px;
+}
+.menu > ul > li > a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    &:hover {
+        color: pink;
+        text-decoration: underline;
+    }
+}
+.icon {
+    width: 20%;
+    height: 100px;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.icon > a{
+    color: black;
+    font-size: 2.5rem;
+    &:active{
+        color: #f16bac;
+    }
+}
+.icon > i {
+    font-size: 2.5rem;
+    cursor: pointer;
+    &:active{
+        color: #f16bac;
+    }
+}
+
+
+.contact-footer {
+    width: 100%;
+    height: 300px;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    /* gap: 20px; */
+    text-align: center;
+}
+.header-con {
+    /* background-color: #a67b5b; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 40px;
+}
+.header-con > a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+.mid-text{
+    width: 100%;
+    height: 95vh;
+    background-color: #fde8ef;
+    padding: 7% 30% 0px 30%;
+    /* text-align: justify; */
+    font-size: 1.3rem;
+    font-family: Khmer os battambang;
+}
+</style>
+<body>
+    
+        <div class="heading">
+                    <div class="logo"><img src="../img/LOGO.png" alt="" /></div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="../index.html">ទំព័រដើម</a></li>
+                            <li><a href="./shop.html" id="#scroll">ទិញ</a></li>
+                            <li><a href="./blog.html">BLOG</a></li>
+                            <li><a href="./aboutus.html">អំពីយើង</a></li>
+                            <li><a href="./contact.html">ទំនាក់ទំនង</a></li>
+                        </ul>
+                    </div>
+                    <div class="icon">
+                        <div class="cycle" id="cycle">
+                            <p style="text-align: center; margin-top: 5px; color: rgb(252, 252, 252); font-size: 20px;" id="add-number">0</p>
+                        </div>
+                        <a href="./card.html" id="showitem"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+    </div>
+
+    <div class="mid-text">
+        <h1 style="color: rgb(0, 0, 0); text-align: center; background-color: white; text-transform: uppercase;">Shipping & Returns</h1>
+        <h1 style="color: rgb(0, 0, 0); text-align: center; font-size: 1.9rem;">Shipping Privacy</h1>
+        <p>1. សូមចំណាំថាយើងមិនទទួលខុសត្រូវចំពោះការបាត់បង់/លួចកញ្ចប់ណាមួយនៅក្នុងសហរដ្ឋអាមេរិក និងអន្តរជាតិឡើយ។ ដូចគ្នាចំពោះកញ្ចប់ដែលត្រូវបានសម្គាល់ថា "បានប្រគល់"។ សូមទាក់ទង USPS/ក្រុមហ៊ុនដឹកជញ្ជូនក្នុងតំបន់របស់អ្នកនៅសហរដ្ឋអាមេរិក ឬការិយាល័យប្រៃសណីយ៍ក្នុងស្រុករបស់អ្នកដោយផ្ទាល់។ ពេលខ្លះពួកគេកាន់កញ្ចប់របស់អ្នកនៅទីនោះ។ នៅពេលដែលបានសម្គាល់ថា "បានប្រគល់" យើងមិនអាចធ្វើអ្វីបាននៅលើទីបញ្ចប់របស់យើង។ សូមអរគុណ</p><br>
+        <p>2. ប្រសិនបើកញ្ចប់របស់អ្នកត្រូវបានបញ្ជូនត្រឡប់ទៅអ្នកផ្ញើវិញ ដោយសារអាសយដ្ឋានខុស ឬបាត់ព័ត៌មាន អ្នកនឹងត្រូវបង់ប្រាក់សម្រាប់ថ្លៃដឹកជញ្ជូនឡើងវិញ ដូច្នេះយើងអាចផ្ញើកញ្ចប់របស់អ្នកឡើងវិញជាមួយនឹងអាសយដ្ឋានត្រឹមត្រូវ។ សូមអរគុណ</p><br>
+        <p>3. ប្រសិនបើកញ្ចប់របស់អ្នកត្រូវបានបាត់បង់ការដឹកជញ្ជូនដូចដែលបានបញ្ជាក់នៅក្នុងព័ត៌មានតាមដាន យើងនឹងទទួលខុសត្រូវក្នុងការផ្ញើកញ្ចប់ថ្មីទៅអ្នកក្នុងរយៈពេល 1 ខែនៃព័ត៌មានតាមដានដែលបានធ្វើបច្ចុប្បន្នភាពចុងក្រោយបំផុត។ ប្រសិនបើអ្នកទាក់ទងមកយើងយឺតជាង 1 ខែ យើងមិនអាចផ្ញើកញ្ចប់ទៅអ្នកវិញបានទេ។ សូមអរគុណ</p>
+    </div>
+
+
+
+        <div class="contact-footer">
+                <div class="header-con">
+                    <h1>Comapany</h1>
+                    <a href="./contact.html">Contact</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./growtogrow.html">Glow to Glow</a>
+                </div>
+                <div class="header-con">
+                    <h1>Support</h1>
+                    <a href="#">Shopping & Returns</a>
+                    <a href="./glow&point.html">Glow Points</a>
+                </div>
+                <div class="header-con">
+                    <h1>Social</h1>
+                    <a href="https://www.facebook.com/somabeauti/">Facebook</a>
+                    <a href="https://www.instagram.com/somabeauti/">Instagram</a>
+                    <a href="https://www.tiktok.com/@besomabeauty?lang=km-KH">TikTok</a>
+                </div>
+            </div>
+        </div>
+    <script src="../java/mobile-nav.js?v=2"></script>
+</body>
+</html>

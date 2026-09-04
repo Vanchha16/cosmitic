@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../css/contact.css?v=2">
+    <link rel="stylesheet" href="../css/responsive.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="shortcut icon" href="../img/smaillogo.png" type="image/x-icon">
+</head>
+<body>
+    <script src="../java/aboutus.js"></script>
+    <div class="container">
+         <div class="header">
+                <div class="heading">
+                    <div class="logo"><a href="../index.html"><img src="../img/LOGO.png" alt="" /></a></div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="../index.html">ទំព័រដើម</a></li>
+                            <li><a href="./shop.html">ទិញ</a></li>
+                            <li><a href="./blog.html">BLOG</a></li>
+                            <li><a href="./aboutus.html">អំពីយើង</a></li>
+                            <li><a href="./contact.html" style="color: pink; text-decoration: underline;">ទំនាក់ទំនង</a></li>
+                        </ul>
+                    </div>
+                    <div class="icon">
+                          <div class="cycle" id="cycle">
+                                <p style="text-align: center; margin-top: 5px; color: rgb(252, 252, 252); font-size: 20px;" id="add-number">0</p>
+                            </div>
+                        <a href="./card.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <button class="hamburger-btn" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+                </div>
+                <div class="mid-page">
+                    <div class="head">
+                        <img src="../img/smaillogo.png" alt="" />
+                        <p>ទំនាក់ទំនងមកកាន់ BESOMA BEAUTY ដើម្បីទទួលបានព័ត៌មានលម្អិត</p>
+                        <img src="../img/smaillogo.png" alt="" />
+                    </div>
+                </div>
+        </div>
+        <div class="form">
+            <div class="info">
+                <div class="conta">
+                    <i class="fa-solid fa-phone"></i> <span>078 221 185</span>
+                </div>
+                <div class="conta">
+                    <i class="fa-regular fa-envelope"></i> <span>Info@somabeauty.com</span>
+                </div>
+                <div class="conta">
+                    <i class="fa-solid fa-location-dot"></i> <span><a href="https://www.google.com.kh/maps/place/Besoma/@11.5463677,104.9240799,15.75z/data=!4m6!3m5!1s0x310951317c5c216b:0x5b0c111e1bce9d2!8m2!3d11.5485415!4d104.9260882!16s%2Fg%2F11kc358ppp?entry=ttu&g_ep=EgoyMDI1MDMxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: black;">34 Street 360, Phnom Penh</a></span>
+                </div>
+            </div>
+            <div class="info">
+                <input type="text" name="" id="" placeholder="នាមត្រកូល">
+                <input type="text" name="" id="" placeholder="នាមខ្លួន">
+                <input type="text" name="" id="" placeholder="លេខទូរស័ព្ទ">
+                <input type="text" name="" id="" placeholder="អាស័យដ្ឋាន">
+                <div class="div-input">
+                     <input type="text" name="" id="" placeholder="អត្ថបទរបស់អ្នក....">
+                </div>
+                <button onclick="clearForm()">ដាក់បញ្ជូន</button>
+            </div>
+        </div>
+
+        
+    </div>
+    <script>
+        function clearForm() {
+    // Select all input fields inside the form
+    const inputs = document.querySelectorAll('.info input');
+    
+    // Loop through each input field and clear its value
+    inputs.forEach(input => {
+        input.value = '';
+    });
+}
+        
+    </script>
+    <script src="../java/mobile-nav.js?v=2"></script>
+</body>
+</html>

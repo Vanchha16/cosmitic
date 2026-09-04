@@ -1,0 +1,12 @@
+# Backup and duplicate directories (contains 180MB git objects exceeding GitHub limit)
+Host/
+cosmitic/
+
+# Editor & IDE files
+.vscode/
+
+# System and temporary files
+Thumbs.db
+.DS_Store
+*.tmp
+*.log
